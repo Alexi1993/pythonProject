@@ -29,7 +29,7 @@ class Convertor:
             raise ConverterException(f'Введите другую сумму {amount}!')
 
         r = requests.get(
-            f"https://min-api.cryptocompare.com/118555ff2a4516f98d917c2ea7e8cbccc8e11bb43ea163bc428efa7007090bdc/data/price?fsym={base_key}&tsyms={sym_key}")
+            f"https://min-api.cryptocompare.com/data/price?fsym={base_key}&tsyms={sym_key}")
         resp = json.loads(r.content)
         new_price = resp['rates'][sym_key] * amount
         new_price = round(new_price, 3)
